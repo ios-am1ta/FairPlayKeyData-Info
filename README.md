@@ -1,19 +1,18 @@
 # FairPlayKeyData-Info
 
-FairPlayKeyData es la clave para un activación completa de cualquier dispositivo.
+FairPlayKeyData is the key to full activation of any device.
 
-Cuando es generado un FairPlayKeyData durante el llamado al servidor de activación correctamente, este se decodifica en rutas distintas
+When a FairPlayKeyData is generated during the call to the activation server correctly, it is decoded in different paths
 
 /private/var/containers/Data/System/com.apple.fairplayd.H2/Documents/Library/FairPlay/iTunes_Control/iTunes/IC-Info.sisv
 /private/var/containers/Data/System/com.apple.fairplayd.H2/Documents/Media//iTunes_Control/iTunes/IC-Info.sidv
 /private/var/mobile/Library/FairPlay/iTunes_Control/iTunes/IC-Info.sisv
 
-¿Como saber realmente el contenido de estos archivos => IC-Info?
+How to really know the content of these files => IC-Info?
 
-Pongamos como ejemplo un certificado FairPlayKeyData decodificado en base64:
+Let's take a base64-decoded FairPlayKeyData certificate as an example:
 
-
----------------------------CERTIFICADO CODIFICADO---------------------------
+---------------------------ENCODED CERTIFICATE---------------------------
 
 	<key>FairPlayKeyData</key>
 	<data>
@@ -54,9 +53,9 @@ Pongamos como ejemplo un certificado FairPlayKeyData decodificado en base64:
 
 
 
----------------------------CERTIFICADO DECODIFICADO---------------------------
+---------------------------CERTIFICATE DECODED---------------------------
 
-FairPlayKeyData decodificado en base64:
+FairPlayKeyData decoded in base64:
 
 	-----BEGIN CONTAINER-----
 	AAEAAfda9m2gomgY0ueYmVgF4LnkOSLxcCTvYxz6v2IRBKdMFiNs9XuHWc7S+T/A
@@ -87,10 +86,9 @@ FairPlayKeyData decodificado en base64:
 
 
 
-Vamos a eliminar las llaves => -----BEGING CERTIFICATE----- & -----END CERTIFICATE-----
+Let's remove the braces => -----BEGING CERTIFICATE----- & -----END CERTIFICATE-----
 
-Generando así solo el contenido del certificado:
-
+Thus generating only the content of the certificate:
 
 	AAEAAfda9m2gomgY0ueYmVgF4LnkOSLxcCTvYxz6v2IRBKdMFiNs9XuHWc7S+T/A
 	ibp3h6McMK0aDLRgwCnU8bhRWRoIxZhZUL0nCp5WP4HKuT2DvPHL6JlPeyz+0e4i
@@ -118,7 +116,7 @@ Generando así solo el contenido del certificado:
 	+VMnNRXFst2D2FxqXltjKAtw/mwrnS8VPFVB2LzgYVVGOv+0
 
 
-Finalmente decodificamos este certificado, obteniendo así => IC-Info.sisv & IC-Info.sidv
+Finally we decode this certificate, thus obtaining => IC-Info.sisv & IC-Info.sidv
 
 
 ---------------------------IC-Info/sisv/sidv---------------------------
